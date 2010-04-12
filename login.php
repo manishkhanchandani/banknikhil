@@ -51,7 +51,7 @@ if (isset($_POST['username'])) {
   $MM_redirecttoReferrer = true;
   mysql_select_db($database_conn, $conn);
   	
-  $LoginRS__query=sprintf("SELECT username, password, role FROM users WHERE username=%s AND password=%s",
+  $LoginRS__query=sprintf("SELECT username, password, role, user_id FROM users WHERE username=%s AND password=%s",
   GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $conn) or die(mysql_error());
@@ -62,7 +62,8 @@ if (isset($_POST['username'])) {
     
     //declare two session variables and assign them
     $_SESSION['MM_Username'] = $loginUsername;
-    $_SESSION['MM_UserGroup'] = $loginStrGroup;	      
+    $_SESSION['MM_UserGroup'] = $loginStrGroup;	
+    $_SESSION['user_id'] = mysql_result($LoginRS,0,'user_id');      
 
     if (isset($_SESSION['PrevUrl']) && true) {
       $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];	
