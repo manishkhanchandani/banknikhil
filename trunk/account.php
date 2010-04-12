@@ -110,8 +110,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     <td><?php echo $row_Recordset1['number']; ?></td>
     <td><?php echo $row_Recordset1['body']; ?></td>
     <td><?php echo $row_Recordset1['date']; ?></td>
-    <td>$ <?php echo number_format($row_Recordset1['dr'],2); $dr += $row_Recordset1['dr'];  ?></td>
-    <td>$ <?php echo number_format($row_Recordset1['cr'],2); $cr += $row_Recordset1['cr']; ?></td>
+    <td>$ <?php echo $row_Recordset1['dr'],2; $dr += $row_Recordset1['dr'];  ?></td>
+    <td>$ <?php echo $row_Recordset1['cr'],2; $cr += $row_Recordset1['cr']; ?></td>
   </tr>
   <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
   <tr>
